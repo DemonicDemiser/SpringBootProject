@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                <form method="put" th:action="@{'/countries/update/' + ${country.id}}">
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" th:value="${country.description}" class="form-control" name="description">
+                    </div>
+                    <div class="form-group">
+                        <label>Capital</label>
+                        <input type="text" th:value="${country.capital}" class="form-control" name="capital">
+                    </div>
+                    <div class="form-group">
+                        <label>Nationality</label>
+                        <input type="text" th:value="${country.nationality}" class="form-control" name="nationality">
+                    </div>
+                    <div class="form-group">
+                        <label>Continent</label>
+                        <input type="text" th:value="${country.continent}" class="form-control" name="continent">
+                    </div>
+                    <div class="form-group">
+                        <label>Country Code</label>
+                        <input type="text" th:value="${country.code}" class="form-control" name="code">
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <a href="/countries" class="btn btn-warning">Exit</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

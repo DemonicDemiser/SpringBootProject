@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+<body>
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-body">
+            <a href="/countryAdd" class="btn btn-primary">New Country</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Capital</th>
+            <th scope="col">Code</th>
+            <th scope="col">Nationality</th>
+            <th scope="col">Continent</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="country: ${countries}">
+            <td th:text="${country.description}"></td>
+            <td th:text="${country.capital}"></td>
+            <td th:text="${country.code}"></td>
+            <td th:text="${country.nationality}"></td>
+            <td th:text="${country.continent}"></td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a th:href="@{'/countryDetails/' + ${country.id}}" class="btn btn-primary">DETAILS</a>
+                    <a th:href="@{'/countryEdit/' + ${country.id}}"
+                       class="btn btn-success">EDIT</a>
+                    <a th:href="@{'/countries/delete/' + ${country.id}}" onclick="return confirm('Are you really wanna delete this content')"
+                       class="btn btn-danger">DELETE</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
